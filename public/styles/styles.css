@@ -1,0 +1,114 @@
+.list-group-item {
+  line-height: 2.5;
+}
+body {
+ margin: 0 auto; 
+ display: flex;
+ min-height: 90vh;
+ min-width: 100vh;
+ flex-direction: column;
+ background-color: white;
+
+
+}
+.bg-pic{
+ background-image: url("https://news.unl.edu/sites/default/files/styles/large_aspect/public/media/stack-of-newspapers_1.jpg?itok=brkqzHbi");
+ background-repeat: no-repeat;
+ background-size: 100% 90vh;
+}
+#loggedUser{
+  color: #ffffff;
+}
+h1 {
+  text-align: center;
+  font-size: 65px;
+  margin: 50px;
+}
+.top-margin{
+  margin: 20px;
+}
+.bg-green{
+  background-color:#82b440;
+  color: #eeeeee;
+}
+.text-green{
+  color: #82b440
+}
+a:hover{
+  color: #eeeeee
+}
+.text-right{
+  text-align: right;
+}
+.no-background{
+  background-color: #ffffff;
+  z-index: 1;
+  min-width: 50vh;
+  min-height: 90vh;
+}
+
+nav{
+  background-color: #2c2c2c;
+  min-height: 10vh;
+  min-width: 100vh;
+}
+.brand{
+  color: #eeeeee;
+  
+}
+.logout{
+  z-index: -1;
+}
+.login{
+  margin-left: 50px;
+}
+@media only screen and (min-width: 768px) {
+  .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+  }
+  .navbar .navbar-collapse {
+      text-align: center;
+  }
+  body{
+    min-width: 0 !important;
+  }
+  nav{
+    min-width: 0 !important;
+  }
+}
+/* start of profile page css */
+.no-background-bottom{
+  background-color: #ffffff;
+  z-index: 1;
+}
+.padding{
+padding: 5px;
+}
+.move-over{
+margin-left: 5px;
+}
+.small-forms{
+width: 60%;
+}
+.morePadding{
+padding-top: 10px;
+}
+.lessMargin{
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.landscape{
+  max-height: 40vh;
+  min-width: 100%;
+}
+.noRightPadding{
+  padding-right: 0;
+}
+.noMargin{
+  margin:0;
+}
+.noPadding{
+  padding:0;
+}
