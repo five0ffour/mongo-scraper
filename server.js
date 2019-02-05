@@ -1,9 +1,13 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var mongoose = require("mongoose");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
