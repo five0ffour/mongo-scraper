@@ -1,10 +1,23 @@
+/* Fonts */
+@font-face { font-family: 'Cherry Soda'; src: url('../fonts/CherrySoda.ttf'); } 
+
+h1, h2, h3, h4, h5, p {
+  font-family: 'Cherry Soda', sans-serif; 
+  color : darkblue;
+}
+
 body {
- margin: 0 auto; 
- display: flex;
- min-height: 90vh;
- min-width: 100vh;
- flex-direction: column;
- background-color: white;
+  background-image: url("https://news.unl.edu/sites/default/files/styles/large_aspect/public/media/stack-of-newspapers_1.jpg?itok=brkqzHbi");
+  margin: 0 auto;
+  display: flex;
+  min-height: 90vh;
+  min-width: 100vh;
+  flex-direction: column;
+  background-color: white;
+}
+
+p {
+  margin: 5px;
 }
 
 #home {
@@ -26,14 +39,13 @@ nav {
   margin: 0px 20px 0px 20px;
 }
 
-.bg-pic{
- background-image: url("https://news.unl.edu/sites/default/files/styles/large_aspect/public/media/stack-of-newspapers_1.jpg?itok=brkqzHbi");
- background-repeat: no-repeat;
- background-size: 100% 90vh;
+.bg-pic {
+  background-repeat: no-repeat;
+  background-size: 100% 90vh;
 }
 
-.no-background{
-  background-color: #ffffff;
+.no-background {
+  background-image: url('../images/textured_paper.png');
   text-align: center;
   z-index: 1;
   min-width: 50vh;
@@ -54,4 +66,8 @@ h1 {
 .article-btn {
   padding: 10px;
   margin: 5px;
+}
+
+.note-btn, .save-btn {
+  margin: 0px;
 }

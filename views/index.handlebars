@@ -1,23 +1,23 @@
 <div id="home">
 
-    <nav class="navbar nav navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="/">Tech Scraper</a>
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar nav navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/">Tech Scraper</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/saved">View Saved Articles</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/saved">View Saved Articles</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container-fluid">
     <div class="row">
@@ -26,20 +26,22 @@
       <div class="col-lg-8 no-background">
         <a class="btn btn-success article-btn text-white" id="scrape-btn">Load New Articles</a>
         <a class="btn btn-danger article-btn text-white" id="clear-btn">Clear Articles</a>
-                <div class="card burgerlist z-depth-2">
-                    <h4 class="header text_b center-align">Technology News</h4>
-                    <table class="striped">
-                        {{#each articles}}
-                        <tr>
-                            <td>
-                                <p>{{this.title}}</p>
-                            </td>
-                            <td><button class="save-btn btn btn-success waves-effect waves-light" data-id={{this._id}}><i class="fas fa-check"></i></button></td>
-                            <td><button class="delete-btn btn btn-danger waves-effect waves-light" data-id={{this._id}}><i class="fas fa-trash-alt"></i></button></td>
-                        </tr>
-                        {{/each}}
-                    </table>
-            </div>
+        <div class="card z-depth-2">
+          <h4 class="header text_b center-align">Technology News</h4>
+          <table class="table table-striped">
+            <tbody>
+              {{#each articles}}
+              <tr>
+                <td>
+                  <p data-id={{this._id}}>{{this.title}}</p>
+                </td>
+                <td><button class="save-btn btn btn-success" data-id={{this._id}}><i class="fas fa-check"></i></button></td>
+                <td><button class="note-btn btn btn-primary" data-id={{this._id}}><i class="fas fa-sticky-note"></i></button></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
