@@ -1,4 +1,5 @@
 require("dotenv").config();
+var logger = require("morgan");
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
@@ -10,6 +11,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 mongoose.connect(MONGODB_URI,{ useNewUrlParser: true });
 
 // Middleware
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -25,6 +27,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes")(app);
 
 var syncOptions = { force: false };
 

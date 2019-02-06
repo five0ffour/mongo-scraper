@@ -4,18 +4,18 @@ module.exports = {
     "password": process.env.DB_PWD,
     "database": process.env.DB_NAME,
     "host": process.env.DB_HOST,
-    "dialect": "mysql"
+    "dialect": "mongo"
   },
   "test": {
     "username": "root",
     "password": "password",
     "database": "testdb",
     "host": "localhost",
-    "dialect": "mysql",
+    "dialect": "mongo",
     "logging": false
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "use_env_variable": "MONGODB_URI",
+    "dialect": "mongo"
   }
 };
