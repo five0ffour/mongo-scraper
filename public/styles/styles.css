@@ -6,14 +6,28 @@ h1, h2, h3, h4, h5, p {
   color : darkblue;
 }
 
+.header {
+  background-color : darkblue;
+  color : white;
+}
+
 body {
-  background-image: url("https://news.unl.edu/sites/default/files/styles/large_aspect/public/media/stack-of-newspapers_1.jpg?itok=brkqzHbi");
   margin: 0 auto;
   display: flex;
   min-height: 90vh;
   min-width: 100vh;
   flex-direction: column;
   background-color: white;
+}
+
+#home {
+  background-image: url("https://news.unl.edu/sites/default/files/styles/large_aspect/public/media/stack-of-newspapers_1.jpg?itok=brkqzHbi");
+}
+
+#saved {
+  background-image: url("https://modernismmodernity.org/sites/default/files/media/A_corridor_of_files_at_The_National_Archives.jpg");
+  background-repeat: no-repeat;
+  background-color:black;
 }
 
 p {
@@ -31,12 +45,11 @@ nav {
 }
 
 .navbar-brand {
-  margin: 0 200px 0 10px;
+  margin: 0 25% 0 5px;
 }
 
 .nav-item {
-  padding: 10px;
-  margin: 0px 20px 0px 20px;
+  padding: 5px;
 }
 
 .bg-pic {
@@ -64,7 +77,7 @@ h1 {
 }
 
 .article-btn {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
 }
 
