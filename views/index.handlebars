@@ -1,17 +1,35 @@
 <div id="home">
-  <div class="container-fluid ">
+
+    <nav class="navbar nav navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="/">Tech Scraper</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/scrape-saved">View Saved Articles</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4 bg-pic">
       </div>
-      <div class="col-lg-8 no-background ">
-        <h1>Tech News Scraper</h1>
-        <p class="subtitle">A technology web scraper app designed to bring you the latest and greatest in technical news.</p>
+      <div class="col-lg-8 no-background">
+        <a class="btn btn-success scrape-new article-btn text-white">Load New Articles</a>
+        <a class="btn btn-danger clear article-btn text-white">Clear Articles</a>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
 
+  </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
