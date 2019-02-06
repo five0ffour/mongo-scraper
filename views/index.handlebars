@@ -26,6 +26,20 @@
       <div class="col-lg-8 no-background">
         <a class="btn btn-success article-btn text-white" id="scrape-btn">Load New Articles</a>
         <a class="btn btn-danger article-btn text-white" id="clear-btn">Clear Articles</a>
+                <div class="card burgerlist z-depth-2">
+                    <h4 class="header text_b center-align">Technology News</h4>
+                    <table class="striped">
+                        {{#each articles}}
+                        <tr>
+                            <td>
+                                <p>{{this.title}}</p>
+                            </td>
+                            <td><button class="save-btn btn btn-success waves-effect waves-light" data-id={{this._id}}><i class="fas fa-check"></i></button></td>
+                            <td><button class="delete-btn btn btn-danger waves-effect waves-light" data-id={{this._id}}><i class="fas fa-trash-alt"></i></button></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+            </div>
       </div>
     </div>
 
