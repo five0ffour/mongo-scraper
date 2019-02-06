@@ -42,8 +42,16 @@ module.exports = function (app) {
   });
 
   // Delete all scraped articles
-  app.delete("/api/reset", function (req, res) {
-    res.json(res);
+  app.delete("/api/articles", function (req, res) {
+    console.log("Deleting all articles from database");
+    db.Article.deleteMany({})
+      .then(function () {
+        console.log("successfully deleted records from database");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    res.sendStatus(200).end();
   });
 
 
@@ -52,7 +60,7 @@ module.exports = function (app) {
   /***********************/
 
   // Get all saved articles
-  app.get("/api/article", function (req, res) {
+  app.get("/api/articles", function (req, res) {
     // Grab every document in the Articles collection
     db.Article.find({})
       .then(function (dbArticle) {
@@ -66,17 +74,17 @@ module.exports = function (app) {
   });
 
   // Save new article
-  app.post("/api/article", function (req, res) {
+  app.post("/api/articles", function (req, res) {
     res.json(res);
   });
 
   // Update saved article by id
-  app.put("/api/article/:id", function (req, res) {
+  app.put("/api/articles/:id", function (req, res) {
     res.json(res);
   });
 
   // Delete saved article by id
-  app.delete("/api/article/:id", function (req, res) {
+  app.delete("/api/articles/:id", function (req, res) {
     res.json(res);
   });
 
@@ -86,7 +94,7 @@ module.exports = function (app) {
   /*************/
 
   // Get saved article details by id
-  app.get("/api/article/:id", function (req, res) {
+  app.get("/api/articles/:id", function (req, res) {
     res.json(res);
   });
 
