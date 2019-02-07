@@ -16,11 +16,11 @@ Save articles screen only displays saved articles
 Responsive layout  
 Save individual articles  
 Individual article delete  
+Shows summary data from database to UI  
   
 # In progress / To Do  
-Complete notes page display and modals   
+Complete notes page display and modal   
 Prevent saves of existing articles  
-Add summary data from database document to UI  
 Clean up navbar  
   
 # APIs 

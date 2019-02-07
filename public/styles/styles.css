@@ -32,6 +32,12 @@ p {
   margin: 5px;
 }
 
+td p {
+  margin: 5px;
+  font-family: 'News Cycle Regular', sans-serif;
+  font-size: small;
+}
+
 #home {
   min-width: 100vh;
 }

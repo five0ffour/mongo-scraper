@@ -40,12 +40,12 @@ module.exports = function (app) {
     });
   });
 
-  // Delete all scraped articles
+  // Delete many - saved = true for archived,  saved = false for just the scraped ones
   app.delete("/api/articles/:saved", function (req, res) {
 
     const isSaved = req.params.saved;
 
-    console.log("Deleting all articles from database");
+    console.log("Deleting articles from database");
     db.Article.deleteMany({
         saved: isSaved
       })
@@ -130,6 +130,11 @@ module.exports = function (app) {
   app.delete("/api/notes/:id", function (req, res) {
     res.json(res);
   });
+
+
+  /*************/
+  /* Catch All */
+  /*************/
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
