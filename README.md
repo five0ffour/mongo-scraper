@@ -3,6 +3,7 @@ Mongoose based web scraper for all the news that's fit to print
   
 # Current status  
 Heroku deployment active and connected to Git deploys    
+Scrapes all required fields
 Load News Articles button functional to scrape website  
 Saves articles to Mongo Database, but logically sorts saved from unsaved
 Notes model defined  
@@ -19,6 +20,7 @@ Save individual article
 Wire up individual article delete button
 Complete notes page display and modals  
 Prevent saves of existing articles
+Add summary data from database document to UI
   
 # APIs 
 Scrape:  GET - /api/scrape  
