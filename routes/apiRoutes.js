@@ -95,8 +95,20 @@ module.exports = function (app) {
   });
 
   // Delete saved article by id
-  app.delete("/api/articles/:id", function (req, res) {
-    res.json(res);
+  app.delete("/api/article/:id", function (req, res) {
+    const id = req.params.id;
+
+    console.log("Deleting one article from database");
+    db.Article.deleteOne({
+        _id: id
+      })
+      .then(function () {
+        console.log("successfully deleted document from database");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    res.sendStatus(200).end();
   });
 
 

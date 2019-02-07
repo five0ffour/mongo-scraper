@@ -14,13 +14,14 @@ Clears all scraped articles
 Delete all saved articles functional
 Save articles screen only displays saved articles
 Responsive layout
+Save individual articles
+Individual article delete 
   
 # In progress / To Do  
-Save individual article
-Wire up individual article delete button
 Complete notes page display and modals  
 Prevent saves of existing articles
 Add summary data from database document to UI
+Clean up navbar
   
 # APIs 
 Scrape:  GET - /api/scrape  

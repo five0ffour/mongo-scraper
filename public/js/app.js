@@ -16,7 +16,7 @@ $(function () {
   // Saves an individual article in the database (update)
   $(".save-btn").on("click", function (event) {
     var article = {
-      id : $(this).data("id")
+      id: $(this).data("id")
     }
 
     $.ajax("/api/articles", {
@@ -33,10 +33,28 @@ $(function () {
   // Delete *all* saved articles
   $("#clear-btn").on("click", function (event) {
     var article = {
-      saved : $(this).data("saved")
-  }
+      saved: $(this).data("saved")
+    }
 
     $.ajax("/api/articles/" + article.saved, {
+      type: "DELETE",
+      data: article
+    }).then(
+      function () {
+        location.reload();
+      }
+    );
+
+  });
+
+
+  // Delete one saved article
+  $(".delete-btn").on("click", function (event) {
+    var article = {
+      id: $(this).data("id")
+    }
+
+    $.ajax("/api/article/" + article.id, {
       type: "DELETE",
       data: article
     }).then(
