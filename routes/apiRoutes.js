@@ -20,12 +20,13 @@ module.exports = function (app) {
 
         const result = {};
         const article = $(element)
-          .children(".item-content")
-          .children("h3")
-          .children("a");
+          .children(".item-content");
+          
 
-        result.title = article.text();
-        result.link = article.attr("href");
+        result.title = article.children("h3").children("a").text();
+        result.link = article.children("h3").children("a").attr("href");
+        result.summary = article.children("p").text();
+        result.saved = false;
 
         db.Article.create(result)
           .then(function (dbArticle) {
@@ -41,9 +42,12 @@ module.exports = function (app) {
   });
 
   // Delete all scraped articles
-  app.delete("/api/articles", function (req, res) {
+  app.delete("/api/articles/:saved", function (req, res) {
+
+    const isSaved = req.params.saved; 
+
     console.log("Deleting all articles from database");
-    db.Article.deleteMany({})
+    db.Article.deleteMany({saved : isSaved})
       .then(function () {
         console.log("successfully deleted records from database");
       })
@@ -52,7 +56,6 @@ module.exports = function (app) {
       });
     res.sendStatus(200).end();
   });
-
 
   /***********************/
   /* Saved Articles APIs */

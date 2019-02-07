@@ -6,7 +6,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     console.log("Getting scraped articles");
 
-    db.Article.find({})
+    db.Article.find({saved : false})
       .then(function (data) {
         var articleData = {
           articles: data
