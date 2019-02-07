@@ -23,7 +23,7 @@ module.exports = function (app) {
   app.get("/saved", function (req, res) {
     console.log("Getting saved articles");
 
-    db.Article.find({})
+    db.Article.find({saved : true})
       .then(function (data) {
         var articleData = {
           articles: data

@@ -21,7 +21,7 @@ module.exports = function (app) {
         const result = {};
         const article = $(element)
           .children(".item-content");
-          
+
 
         result.title = article.children("h3").children("a").text();
         result.link = article.children("h3").children("a").attr("href");
@@ -29,8 +29,7 @@ module.exports = function (app) {
         result.saved = false;
 
         db.Article.create(result)
-          .then(function (dbArticle) {
-          })
+          .then(function (dbArticle) {})
           .catch(function (err) {
             console.log(err);
           });
@@ -44,10 +43,12 @@ module.exports = function (app) {
   // Delete all scraped articles
   app.delete("/api/articles/:saved", function (req, res) {
 
-    const isSaved = req.params.saved; 
+    const isSaved = req.params.saved;
 
     console.log("Deleting all articles from database");
-    db.Article.deleteMany({saved : isSaved})
+    db.Article.deleteMany({
+        saved: isSaved
+      })
       .then(function () {
         console.log("successfully deleted records from database");
       })
@@ -75,14 +76,22 @@ module.exports = function (app) {
       });
   });
 
-  // Save new article
+  // Saves the article to the database (logically, the data is already there)
   app.post("/api/articles", function (req, res) {
-    res.json(res);
-  });
 
-  // Update saved article by id
-  app.put("/api/articles/:id", function (req, res) {
-    res.json(res);
+    const id = req.body.id;
+
+    db.Article.update({
+        "_id": id
+      }, {
+        "saved": "true"
+      })
+      .then(function (dbArticle) {
+        res.json(dbArticle);
+      })
+      .catch(function (err) {
+        res.json(err);
+      });
   });
 
   // Delete saved article by id

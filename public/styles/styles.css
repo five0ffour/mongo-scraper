@@ -1,8 +1,6 @@
-/* Fonts */
-@font-face { font-family: 'Cherry Soda'; src: url('../fonts/CherrySoda.ttf'); } 
 
 h1, h2, h3, h4, h5, p {
-  font-family: 'Cherry Soda', sans-serif; 
+  font-family: 'News Cycle Bold', sans-serif;
   color : darkblue;
 }
 
