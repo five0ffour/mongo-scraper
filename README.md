@@ -1,5 +1,5 @@
 # mongo-scraper  
-Mongoose based web scraper for all the news that's fit to print    
+Mongoose based web scraper for all the news that's fit to print.  Scrapes the headline articles from TechRepublic.com and saves them in a Mongo Database using Mongoose and deployed in Heroku.  
   
 # Current status  
 Heroku deployment active and connected to Git deploys      
@@ -30,3 +30,10 @@ HTML Routes:  Index & Saved pages
 
 # Demo
 ![Technology Scraper](./public/images/mongo-scraper.gif)  
+
+## Try it out at:    
+http://mbg-mongo-scraper.herokuapp.com
+
+## Authors    
+Michael Galarneau - Initial work - five0ffour  
+February, 2019  
