@@ -18,7 +18,7 @@ Save individual articles
 Individual article delete  
 Shows summary data from database to UI  
   
-# In progress / To Do  
+# In Progress / To Do  
 Complete notes page display and modal   
 Prevent saves of existing articles  
 Clean up navbar  
@@ -27,3 +27,6 @@ Clean up navbar
 Scrape:  GET - /api/scrape  
 Delete:  DELETE - /api/articles  
 HTML Routes:  Index & Saved pages  
+
+# Demo
+![Technology Scraper](./public/images/mongo-scraper.gif)  
