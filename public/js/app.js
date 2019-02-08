@@ -68,44 +68,46 @@ $(function () {
   // Notes Modal Dialog Event Pop-up
   $('#notesModal').on('show.bs.modal', function (event) {
 
-    const button = $(event.relatedTarget) // Button that triggered the modal
-    const id = button.data('id') // Extract info from data-* attributes
+    const button = $(event.relatedTarget) 
+    const articleId = button.data('id')          // get the data-id for the article primary key
 
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    // Query the database of all existing articles for this key
+    $.ajax("/api/notes/" + articleId, {
+      type: "GET",
+    }).then((data) => {
+      const modal = $(this)
+      modal.find('.modal-title').text('Article Ref #' + articleId);
+      modal.find('.model-content #article-id').data("id", articleId);
+    });
 
-    var modal = $(this)
-    modal.find('.modal-title').text('Article Ref #' + id)
-    modal.find('.modal-body input').val(id)
-    modal.data("id",id);
   });
 
 
-  // Save Note Modal button
+  // Save Note Modal button - attach it to the correct article using the _id data attribute
   $(".save-note-btn").on('click', function (event) {
-      const id = $("notesModal").data("id");
-      console.log("id: ", id);
-      console.log(JSON.stringify(event,0,2));
-      handleNoteSave();
+      const id = $("notesModal").find('.model-content #article-id').data("id");
+      saveNote();
   });
 
-  function handleNoteSave() {
+  function saveNote() {
     // This function handles what happens when a user tries to save a new note for an article
     // Setting a variable to hold some formatted data about our note,
     // grabbing the note typed into the input box
     var noteData;
-    var newNote = $("#notesModal textarea")
-      .val()
-      .trim();
-    // If we actually have data typed into the note input field, format it
-    // and post it to the "/api/notes" route and send the formatted noteData as well
-    if (newNote) {
-      alert("Saved.." + newNote);
-      // noteData = { _headlineId: $(this).data("article")._id, noteText: newNote };
-      // $.post("/api/notes", noteData).then(function() {
-      //   // When complete, close the modal
-      //   bootbox.hideAll();
-      // });
+    var noteText = $("#notesModal #note-text").val().trim();
+
+    // If there is a note post it to "/api/notes" passing in the article id as a foreign key
+    if (noteText) {
+      const note = {
+        body: noteText
+      }
+
+      $.ajax("/api/notes", {
+        type: "POST",
+        data: note
+      }).then((result) => {
+        console.log(JSON.stringify(result, 0 ,2));
+      });
     }
   }
 

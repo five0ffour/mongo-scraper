@@ -8,7 +8,7 @@ module.exports = function (app) {
   /* News Source APIs */
   /********************/
 
-  // Scrape news source
+  // Scrape news source and push to database
   app.get("/api/scrape", function (req, res) {
 
     axios.get("http://www.techrepublic.com/").then(function (response) {
@@ -28,6 +28,7 @@ module.exports = function (app) {
         result.summary = article.children("p").text();
         result.saved = false;
 
+        // Save these records in Mongo defaulted to "not saved" (paradoxically)
         db.Article.create(result)
           .then(function (dbArticle) {})
           .catch(function (err) {
@@ -55,6 +56,7 @@ module.exports = function (app) {
       .catch(function (err) {
         console.log(err);
       });
+
     res.sendStatus(200).end();
   });
 
@@ -123,7 +125,22 @@ module.exports = function (app) {
 
   // Get saved notes by article id
   app.get("/api/notes/:articleid", function (req, res) {
-    res.json(res);
+    res.status(200).end();
+  });
+
+  // Save a note linking it to an article
+  app.post("/api/notes", function(req, res) {
+    const note = req.body.note;
+
+    db.Note.create(note)
+    .then(function (dbNote) {
+      res.json(dbNote);
+    })
+    .catch(function (err) {
+      console.log(err);
+      res.status(500).end();
+    });
+
   });
 
   // Delete saved note by note id
